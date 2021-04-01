@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: SNS message forwarding function for aggregating account notifications.
+Resources:
+  awscontroltowerNotificationForwarder:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: index.lambda_handler
+      Runtime: python3.6
+      CodeUri: .
+      Description: SNS message forwarding function for aggregating account notifications.
+      MemorySize: 128
+      Timeout: 60
+      Role: >-
+        arn:aws:iam::332124071547:role/aws-controltower-ForwardSnsNotificationRole
+      Events:
+        SNS1:
+          Type: SNS
+          Properties:
+            Topic:
+              Ref: SNSTopic1
+      Environment:
+        Variables:
+          sns_arn: >-
+            arn:aws:sns:us-east-1:668966097848:aws-controltower-AggregateSecurityNotifications
+  SNSTopic1:
+    Type: 'AWS::SNS::Topic'

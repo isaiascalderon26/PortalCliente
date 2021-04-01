@@ -1,0 +1,5 @@
+export const formOpt = "https://ne58mah6v9.execute-api.us-east-1.amazonaws.com/production/customerservice"
+export const userInfo = "https://ne58mah6v9.execute-api.us-east-1.amazonaws.com/production/userinfo"
+export const orderList = "https://ne58mah6v9.execute-api.us-east-1.amazonaws.com/production/orders"
+export const orderDetail = "https://ne58mah6v9.execute-api.us-east-1.amazonaws.com/production/orders/detail"
+//export const sendMail = "https://ne58mah6v9.execute-api.us-east-1.amazonaws.com/production/contacto"
